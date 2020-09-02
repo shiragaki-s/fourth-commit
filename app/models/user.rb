@@ -10,4 +10,6 @@ VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
 validates :password, format: { with: VALID_PASSWORD_REGEX }
 validates :email, format: { with: VALID_EMAIL_REGEX }
+
+has_many :topics
 end

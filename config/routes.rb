@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'topics/new'
   get 'session/new'
   get 'users/new'
   get 'pages/index'
@@ -9,6 +10,7 @@ root'pages#help'# For details on the DSL available within this file, see http://
 end
 
 Rails.application.routes.draw do
+  get 'topics/new'
   get 'session/new'
   root 'pages#index'
   get 'pages/help'
@@ -17,7 +19,13 @@ Rails.application.routes.draw do
 end
   
 Rails.application.routes.draw do
+  get 'sessions/new'
+  root 'pages#index'
+  get 'pages/help'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  
+  resources :users
+  resources :topics
 end
