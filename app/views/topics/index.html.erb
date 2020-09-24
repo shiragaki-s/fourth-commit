@@ -11,14 +11,13 @@
              <% if !topic.favorite_users.include?(current_user) %>
               <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
                <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
-               <%= topic.favorite_users.count %>
               <% end %>
-              <% else %>
+             <% else %>
                <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
-               <%= image_tag 'icons/heart-pink.png', class: 'topic-index-icon' %>
-               <%= topic.favorite_users.count %>
+                <%= image_tag 'icons/heart.png', class: 'topic-red-icon' %>
+               <% end %>
               <% end %>
-            <% end %>
+            <%= topic.favorite_users.count %>
              
             
             <p class="topic-text">
