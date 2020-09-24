@@ -12,4 +12,6 @@ validates :password, format: { with: VALID_PASSWORD_REGEX }
 validates :email, format: { with: VALID_EMAIL_REGEX }
 
 has_many :topics
+has_many :favorites
+has_many :favorite_topics, through: :favorites, source: 'topic'
 end
